@@ -36,7 +36,7 @@ if ($dir=opendir($ruta)) {
         if ($item!="." && $item!=".." && $item!="k" && $item!=".git" && $item!="00" && $item!="index.php" && $item!="style.css") {
 
             // echo "$item\n";
-            $link = "./".$item."/index.php";
+            $link = "./".$item."/index.html";
             $title=getTitle($link);
 
             echo("<li><a href=".$link.">".$title."</a></li>");
