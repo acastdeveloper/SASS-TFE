@@ -4,23 +4,137 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>2. Instal·lació de SASS.</title>
+  <title>3. Primers passos.</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,400,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
   <main>
-    <header><h1>Video 2. Instal·lació de SASS</h1>
+    <a href="../index.php">&lt;Tornar</a>
+    <header><h1>Video 3. Primers passos</h1>
     <nav><h2>Sumari</h2>
+      <ul>
+        <li><a href="#1">1. Crear carpetes de treball i carpetes de sortida.</a></li>
+        <li><a href="#2">2. Crear arxiu <strong><em>.SCSS</em></strong></a></li>
+        <li><a href="#3">3. Preparar el "vigilant" de SASS.</a></li>
+        <li><a href="#4">4. Fem una prova.</a></li>
+        <li><a href="#5">5. Opcions de sortida: <em>expanded</em> i <em>compressed</a>.</li>
+      </ul>
 
     </nav>
     </header>
     <section>
       <article>
-        <header></header>
-        <a href="https://sass-lang.com/install">Seguim les instruccions d'aquest enllaç</a>
+        <header><h2><a name="1"></a>1. Crear carpetes de treball i carpetes de sortida</h2></header>
+        <p>SASS és un llenguatge de pre-processament. Això significa que nosaltres no treballarem els fulls d'estil directament sobre arxius <strong><em>.CSS</em></strong> normals sino que treballarem en precursors d'aquests arxius, els quals trindran extensió <strong><em>.SCSS</em></strong> (i també poden tenir-ne <strong><em>.SASS</em></strong>). I a partir d'aquests, i de forma automàtica fins i tot, s'aniran generant els arxius <strong><em>.CSS</em></strong>. Per qüestions d'organització i que no es mesclin les coses crearem una carpeta pels arxius <strong><em>scss</em></strong> i una altra pels <strong><em>css</em></strong> normals.</p>
+        <img src="carpetes_scss_css.png" alt="">
       </article>
+
+      <article>
+        <header><h2><a name="2"></a>2. Crear arxiu <strong><em>.SCSS</em></strong></h2></header>
+        <p>A la carpeta <strong><em>scss</em></strong> crearem l'arxiu que anomenarem, per exemple <em>estil01.css</em>.</p>
+        <img src="estil01_scss.png" alt="">
+      </article>
+
+      <article>
+        <header><h2><a name="3"></a>3. Preparar el "vigilant" de SASS.</h2></header>
+        <p>Farem que el preprocessador <strong>sass</strong> vigili cada cop que guardem un canvi als arxius de la carpeta <strong><em>scss</em></strong> i en cas que sí els processi i escrigui els canvis a la carpeta de sortida <strong><em>css</em></strong>.</p>
+        <p>Per fer això amb la terminal anem a la carpeta que conté a les subcarpetes <em>scss</em> i <em>css</em>, que en el meu cas és la carpeta <em>sandbox</em>, com es pot observar a les imatges anteriors. Un cop allà hem de escriure la següent comanda.</p>
+        <pre class="term">$ sass --watch scss:css</pre>
+
+        <p>En fer això podem veure que a la carpeta <em>css</em> ens ha creat dos arxius:</p>
+        <ul>
+          <li>estil01.css</li>
+          <li>estil01.css.map</li>
+        </ul>
+        <img src="carpetes_scss_css02.png" alt="">
+        <p>Si tot ha anat bé ja tenim preparada la infraestructura per poder treballar amb SASS.</p>
+      </article>
+
+      <article>
+        <header><h2><a name="4"></a>4. Fem una prova.</h2></header>
+        <p>Abans de continuar anem a comprovar que processa bé el llenguatge SASS. Escriurem a SASS uns estils anidats, a veure que succeeix.</p>
+        <p>A l'arxiu estil01.scss escriurem un codi amb successius anidaments, cosa típica de SASS i que no es pot fer a CSS.</p>
+        <img src="prova_anidament.jpg" alt="">
+
+        <p>Comparem a continuació els dos arxius:</p>
+
+        <h4><strong><em>estil01.scss</em></strong></h4>
+<pre class="pink">
+//CODI SCSS
+#main {
+width:97%;
+
+p,div {
+font-size: 2em;
+a { font-weight: bold;}
+}
+
+pre { font-size: 3em;}
+}
+</pre>
+        <h4><strong><em>estil01.css</em></strong></h4>
+<pre>
+//CODI CSS
+#main {
+width: 97%;
+}
+#main p, #main div {
+font-size: 2em;
+}
+#main p a, #main div a {
+font-weight: bold;
+}
+#main pre {
+font-size: 3em;
+}
+</pre>
+
+      </article>
+
+      <article>
+        <header><h2><a name="5"></a>5. Opcions de sortida: <em>expanded</em> i <em>compressed</em>.</h2></header>
+
+        <p>Existeix, actualment al preprocessador de SASS, dues formes d'escriure l'arxiu de sortida segons posem al terminal el següent:</p>
+
+        <h3>COMPRESSED</h3>
+        <pre class="term">$ sass --watch scss:css --style=compressed</pre>
+<p>Arxiu <strong><em>estil01.css</em></strong> en mode <em>compressed</em>:</p>
+<pre style="overflow:hidden;">
+#main{width:50%}#main p,#main div{font-size:2em}#main p a,#main div a{font-weight:bold}#main pre{font-size:3em}b{font-weight:bold}/*# sourceMappingURL=estil01.css.map */
+</pre>
+ <hr>
+
+        <h3>EXPANDED</h3>
+        <pre class="term">$ sass --watch scss:css --style=expanded</pre>
+
+
+<p>Arxiu<strong><em>estil01.css</em></strong> en mode <em>expanded</em>:</p>
+<pre>
+//CODI CSS
+#main {
+width: 97%;
+}
+#main p, #main div {
+font-size: 2em;
+}
+#main p a, #main div a {
+font-weight: bold;
+}
+#main pre {
+font-size: 3em;
+}
+</pre>
+
+      </article>
+
+
+
     </section>
-    <footer></footer>
+    <footer>
+      <a href="../02/">Anterior</a>
+      <a href="../04/">Següent</a>
+    </footer>
   </main>
 
 </body>

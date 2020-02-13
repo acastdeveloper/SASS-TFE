@@ -33,7 +33,7 @@ if ($dir=opendir($ruta)) {
     // echo "És aquest directori";
 
     while (false !== ($item = readdir($dir))) {
-        if ($item!="." && $item!=".." && $item!="k" && $item!=".git" && $item!="00" && $item!="index.php" && $item!="style.css") {
+        if ($item!="." && $item!=".." && $item!="k" && $item!=".git"  && $item!="sandbox" && $item!="00" && $item!="index.php" && $item!="style.css") {
 
             // echo "$item\n";
             $link = "./".$item."/index.html";
