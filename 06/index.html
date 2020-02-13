@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>6. Variables.</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,400,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main>
+    <a href="../index.php">&lt;Tornar</a>
+    <header><h1>Video 6. Variables.</h1>
+    <nav><h2>Sumari</h2>
+      <ul>
+        <li><a href="#1">Concepte de variable</a></li>
+        <li><a href="#2">Com declarar variables a SASS</a></li>
+        <li><a href="#3">Tipus de variables</a></li>
+      </ul>
+
+    </nav>
+    </header>
+    <section>
+      <article>
+        <header><h2><a name="1"></a>Concepte de variable</h2></header>
+        <p>Als llenguatges de programació fem servir <strong><em>variables</em></strong> per emmagatzemar informació. Sovint ens resulten molt útils per evitar haver de repetir i per fer càlculs.</p>
+      </article>
+
+      <article>
+        <header><h2><a name="2"></a>Com declarar variables a SASS</h2></header>
+        <p>A SASS definim variables com si fos una propietat de css però amb un <strong>$</strong> al davant.</p>
+        <pre>$variable: valor;</pre>
+      </article>
+
+      <article>
+        <header><h2><a name="3"></a>Recuperar valors</h2></header>
+        <p>A SASS definim variables com si fos una propietat de css però amb un <strong>$</strong> al davant.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>SCSS</th>
+              <th>CSS</th>
+            </tr>
+          </thead>
+          <tr>
+            <td><pre class="pink">//variables
+$base-color: #c6538c;
+$border-dark: rgba($base-color, 0.88);
+
+.alert {
+  border: 1px solid $border-dark;
+  //crida a la variable
+}</pre></td>
+            <td><pre>.alert {
+  border: 1px solid rgba(198, 83, 140, 0.88);
+}</pre></td>
+          </tr>
+        </table>
+      </article>
+
+
+
+
+    </section>
+    <footer>
+      <a href="../03/">Anterior</a>
+      <a href="../05/">Següent</a>
+    </footer>
+  </main>
+
+</body>
+</html>
