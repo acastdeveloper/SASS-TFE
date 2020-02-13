@@ -1,1 +1,68 @@
-#main{width:50%}#main p,#main div{font-size:2em}#main p a,#main div a{font-weight:bold}#main pre{font-size:3em}b{font-weight:bold}/*# sourceMappingURL=estil01.css.map */
+#main {
+  width: 50%;
+}
+#main p, #main div {
+  font-size: 2em;
+}
+#main p a, #main div a {
+  font-weight: bold;
+}
+#main pre {
+  font-size: 3em;
+}
+
+b {
+  font-weight: bold;
+}
+
+body {
+  font-size: 16px;
+  font-family: sans-serif;
+  background: lightgrey;
+}
+
+/* Comentari */
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+a:link {
+  color: white;
+  background: darkgrey;
+}
+a:visited {
+  color: white;
+  background: purple;
+}
+a:hover {
+  color: white;
+  background: darkorange;
+}
+a:active {
+  color: white;
+  background: red;
+}
+
+article {
+  color: #333;
+}
+article pre {
+  background: darkgreen;
+  color: lightgrey;
+}
+article.pink {
+  background: pink;
+  color: darkgreen;
+}
+article.blue {
+  background: blue;
+  color: yellow;
+}
+article header {
+  padding: 1em;
+}
+article header h2 {
+  font-family: monospace;
+}
+
+/*# sourceMappingURL=estil01.css.map */

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>4. Anidaments (nesting).</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,400,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main>
+    <a href="../index.php">&lt;Tornar</a>
+    <header><h1>Video 4. Anidaments (nesting).</h1>
+    <nav><h2>Sumari</h2>
+      <ul>
+        <li><a href="#1">1. Estalvi de selectors per anidació </a></li>
+        <li><a href="#2">2. Selector "parent" <strong>&</strong></a></li>
+            </ul>
+
+    </nav>
+    </header>
+    <section>
+      <article>
+        <header><h2><a name="1"></a>1. Estalvi de selectors per anidació.</h2></header>
+        <p>Per treballar si volem generar el codi de l'esquerra, que està plé de selectors repetits, podem anidar com al codi de la dreta.</p>
+
+<table>
+<tr>
+  <th>estil01.css</th>
+  <th>estil01.scss</th>
+</tr>
+  <tr>
+<td valign="top">
+<pre>
+  main {
+    background: white;
+    max-width: 100vh;
+  }
+  main header h1 {
+    font-family: 24px;
+    font-weight: bold;
+  }
+  main header nav ul a {
+    text-decoration: none;
+    display: inline-block;
+  }
+  main header nav ul a:link {
+    color: white;
+    background: darkgrey;
+  }
+  main header nav ul a:visited {
+    color: white;
+    background: purple;
+  }
+  main header nav ul a:hover {
+    color: white;
+    background: darkorange;
+  }
+  main header nav ul a:active {
+    color: white;
+    background: red;
+  }
+  main section article {
+    color: #333;
+  }
+  main section article pre {
+    background: darkgreen;
+    color: lightgrey;
+  }
+  main section article.pink {
+    background: pink;
+    color: darkgreen;
+  }
+  main section article.blue {
+    background: blue;
+    color: yellow;
+  }
+  main section article header {
+    padding: 1em;
+  }
+  main section article header h2 {
+    font-family: monospace;
+  }
+</pre>
+</td>
+<td valign="top">
+<pre class="pink">
+  main {
+    background: white;
+    max-width: 100vh;
+    header {
+      h1 { font-family:24px; font-weight: bold;}
+      nav {
+        ul {
+          a {
+            text-decoration:none;
+            display: inline-block;
+            &:link {color:white;background:darkgrey;}
+            &:visited {color:white;background:purple;}
+            &:hover {color:white;background:darkorange;}
+            &:active {color:white;background:red;}
+          }
+        }
+      }
+    }
+    section {
+      article {
+        color: #333;
+        pre{ background:darkgreen; color:lightgrey;}
+        &.pink {background:pink;color:darkgreen;}
+        &.blue {background:blue;color:yellow;}
+        header {
+          padding: 1em;
+          h2 {font-family:monospace;}
+        }
+      }
+    }
+  }
+</pre>
+</td>
+</tr>
+</table>
+      </article>
+
+
+
+
+
+
+      <article>
+        <header><h2><a name="2"></a>2. Selector "PARE" <strong>&</strong>.</h2></header>
+        <p>Quan volguem referir-nos a l'element pare, haurem d'utilitzar el selector <strong><em>&</em></strong>.</p>
+
+<table>
+  <tr>
+    <th>estil01.css</th>
+    <th>estil01.scss</th>
+  </tr>
+  <tr>
+<td valign="top">
+<pre>
+  a {
+    text-decoration: none;
+    display: inline-block;
+  }
+  a:link {
+    color: white;
+    background: darkgrey;
+  }
+  a:visited {
+    color: white;
+    background: purple;
+  }
+  a:hover {
+    color: white;
+    background: darkorange;
+  }
+  a:active {
+    color: white;
+    background: red;
+  }
+
+  article {
+    color: #333;
+  }
+  article pre {
+    background: darkgreen;
+    color: lightgrey;
+  }
+  article.pink {
+    background: pink;
+    color: darkgreen;
+  }
+  article.blue {
+    background: blue;
+    color: yellow;
+  }
+  article header {
+    padding: 1em;
+  }
+  article header h2 {
+    font-family: monospace;
+  }
+</pre>
+</td>
+<td valign="top">
+<pre class="pink">
+
+  a {
+    text-decoration:none;
+    display: inline-block;
+    &:link {color:white;background:darkgrey;}
+    &:visited {color:white;background:purple;}
+    &:hover {color:white;background:darkorange;}
+    &:active {color:white;background:red;}
+  }
+
+  article {
+    color: #333;
+    pre{ background:darkgreen; color:lightgrey;}
+    &.pink {background:pink;color:darkgreen;}
+    &.blue {background:blue;color:yellow;}
+    header {
+      padding: 1em;
+      h2 {font-family:monospace;}
+    }
+  }
+
+</pre>
+</td>
+</tr>
+</table>
+      </article>
+
+
+
+
+    </section>
+    <footer>
+      <a href="../03/">Anterior</a>
+      <a href="../05/">Següent</a>
+    </footer>
+  </main>
+
+</body>
+</html>

@@ -11,3 +11,34 @@
 
   b { font-weight: bold;
   }
+
+
+
+
+body {
+font-size: 16px;
+font-family: sans-serif;
+background: lightgrey;
+}
+
+/* Comentari */
+
+  a { //Comentari
+    text-decoration:none;
+    display: inline-block;
+    &:link {color:white;background:darkgrey;}
+    &:visited {color:white;background:purple;}
+    &:hover {color:white;background:darkorange;}
+    &:active {color:white;background:red;}
+  }
+
+  article {
+    color: #333;
+    pre{ background:darkgreen; color:lightgrey;}
+    &.pink {background:pink;color:darkgreen;}
+    &.blue {background:blue;color:yellow;}
+    header {
+      padding: 1em;
+      h2 {font-family:monospace;}
+    }
+  }
