@@ -18,7 +18,6 @@
         <li><a href="#2">Com declarar variables a SASS</a></li>
         <li><a href="#3">Tipus de variables</a></li>
       </ul>
-
     </nav>
     </header>
     <section>
@@ -28,7 +27,7 @@
       </article>
 
       <article>
-        <header><h2><a name="2"></a>Com declarar variables a SASS</h2></header>
+        <header><h2><a name="2"></a>Com declarar variables a SASS i com invocar-les</h2></header>
         <p>A SASS definim variables com si fos una propietat de css però amb un <strong>$</strong> al davant.</p>
         <pre>$variable: valor;</pre>
       </article>
@@ -59,13 +58,109 @@ $border-dark: rgba($base-color, 0.88);
         </table>
       </article>
 
+      <article>
+        <header><h2><a name="4"></a>Tipus de dades que admet SASS</h2></header>
+
+
+<ul>
+  <li>Els mateixos que admet CSS.
+  <ul class="dashed-grey mv1em">
+    <li>Números i números amb unitats:<br>
+      <pre class="pink">$var: 1.2 | 13 | 10px | 1em ; </pre>
+    </li>
+    <li>Cadenes amb i sense cometes:<br>
+      <pre class="pink">$var: "foo" | 'bar' | baz ;</pre>
+    </li>
+    <li>Colors:<br>
+      <pre class="pink">$var: blue | #336699 | rgba(255, 0, 0, .5) ;</pre>
+    </li>
+    <li>Llistes de valors separats per comes o espais:<br>
+      <pre class="pink">$var1: 1.5em 1em 0 2em | Helvetica, Arial, sans-serif ;</pre>
+    </li>
+  </ul>
+  </li>
+  <li>Altres tipus que trobem als llenguatges de programació:
+  <ul class="dashed-grey mv1em">
+    <li>Booleans: <strong><em>true</em></strong> | <strong><em>false</em></strong>:<br>
+      <pre class="pink">$var1: true | false ;</pre>
+    </li>
+    <li>Null:<br>
+      <pre class="pink">$var1: null;</pre>
+    </li>
+    <li>Mapes, d'un valor a un altre.:<br>
+      <pre class="pink">$var1: (key1: value1, key2: value2)</pre>
+    </li>
+  </ul>
+</li>
+</ul>
+
+      </article>
+
+
+
+      <article>
+        <header><h2><a name="5"></a>Diferències entre variables CSS i variables SASS</h2></header>
+        <p>A un <a href="https://www.youtube.com/watch?v=ZjEPwQSUTeQ">video</a> d'EDTEAM Álvaro explica coses que es poden fer i les diferències entre les variables CSS i les variables SASS. Sense entretenir-me les poso a continuació:</p>
+
+        <ul>
+          <li>Les variables css es poden fer servir dins de SASS(perquè a SASS pots fer servir CSS).</li>
+          <li>Les variables a CSS necessiten un <strong><em>scope</em></strong>(un àmbit). Si vols que aquella variable CSS que hem emmagatzemat sigui vista des de qualsevol element podem fer servir un pseudo-element anomenat <strong><em>:root</em></strong>com a selector que farà d'àmbit global.
+          <pre>
+            :root {
+              --color: green;
+            }
+          </pre>
+          <p>Posar <strong><em>:root</em></strong> és el mateix que utilitzar el selector <strong><em>html</em></strong>.</p>
+          <p>No té per què ser un selector :root. Podria ser qualsevol altre. Per exemple:</p>
+          <pre>
+            p {
+              --color:green;
+            }
+          </pre>
+          </li>
+
+          <li>L'àmbit, <strong><em>scope</em></strong>, de les variables és on existeixen.
+          <ul>
+            <li>Per a Sass aquest scope és de bloc de codi(és a dir que funciona entre claudators). Exemple:
+<pre class="pink">
+:root { //La variable $color existeix des d'aquí...
+  $color: green;
+
+      body {
+        background-color: $color;
+      }
+
+} // fins aquí. És a dir, en tot aquest bloc.
+</pre>
+</li>
+<li>Per a CSS és a nivell de DOM (herència).
+<pre>
+:root {
+  --color: green;
+}
+
+
+body {
+  background-color:var(--color);
+}</pre></li>
+
+          </ul>
+          </li>
+          <li>A SASS les variables són <strong><em>estàtiques</em></strong> i a CSS són <strong><em>dinàmiques</em></strong>. Quan diem estàtiques vól dir que un cop s'han processat les variables SASS ja no canvien de valor. En canvi CSS permet canviar els valors de les variables i el navegador, en temps reial, </li>
+        </ul>
+
+
+
+      </article>
+
+
 
 
 
     </section>
     <footer>
-      <a href="../03/">Anterior</a>
-      <a href="../05/">Següent</a>
+      <a href="../05/">Anterior</a>
+      <a href="../07/">Següent</a>
     </footer>
   </main>
 
