@@ -65,6 +65,8 @@ pre.term {
   padding: 10px;
 }
 
+.comparativa td  {border:1px solid black; vertical-align: top;}
+
 .dashed-grey {border:1px dashed grey;}
 
 .mv1em{margin-top:1em; margin-bottom:1em;}

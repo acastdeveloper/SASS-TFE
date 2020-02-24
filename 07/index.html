@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>7. Mixins.</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,400,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main>
+    <a href="../index.php">&lt;Tornar</a>
+    <header><h1>Video 7. Mixins.</h1>
+    <nav><h2>Sumari</h2>
+      <ul>
+        <li><a href="#1">Sassmeister</a></li>
+        <li><a href="#2">Què són els mixins?</a></li>
+        <li><a href="#3">Com declarar els mixins?</a></li>
+      </ul>
+    </nav>
+    </header>
+    <hr>
+    <section>
+      <article>
+        <header><h2><a name="1"></a>Sassmeister</h2></header>
+        <p>Al vídeo ens comenten una pàgina web que es diu Sassmeister on podem veure en temps reial com es va compilant el codi SASS convertint-se en CSS. Es troba a la pàgina: <a href="https://www.sassmeister.com/">sassmeister.com</a> </p>
+      </article>
+<hr>
+      <article>
+        <header><h2><a name="2"></a>Què són els mixins?</h2></header>
+        <p>Els mixins són un <em>tipus de <strong>funcions de SASS</strong></em>  que agrupen conjunts de propietats i regles que agrupem en un bloc i predefinim per tal de ser reutilitzats cada cop que ens calgui. Van bé per estalviar-nos feina.</p>
+      </article>
+<hr>
+      <article>
+        <header><h2><a name="3"></a>Com es declaren els mixins?</h2></header>
+        <h3>Mixins sense paràmetres</h3>
+        <pre>@mixin nom {
+          propietats...
+        }</pre>
+        <p>Per definir un mixin que no li calguin paràmetres hem de col·locar <strong><em>@mixin</em></strong> seguit del nom que li vulguem posar al <strong><em>mixin</em></strong> per poder referir-nos a ell cada vegada. I després entre claudators posem les propietats que volem que tingui. A continuació veiem un exemple:</p>
+        <pre>@include titulos;</pre>
+        <p>Veiem un exemple a continuació:</p>
+<table class="comparativa">
+  <thead>
+    <tr>
+      <th>SASS</th>
+      <th>CSS</th>
+    </tr>
+    <tr>
+      <td class="pink">
+<pre class="pink">
+@mixin titulos {
+margin: 0 0 20px 0;
+font-family: Georgia, serif;
+font-size:20px;
+font-weight:bold;
+text-transform: uppercase;
+}
+
+section > h1 {
+@include titulos;
+color: #333;
+}
+
+section > h2 {
+@include titulos;
+
+}
+
+section > h3 {
+@include titulos;
+color:#999;
+}
+
+</pre>
+      </td>
+      <td class="pre">
+<pre>
+section > h1 {
+margin: 0 0 20px 0;
+font-family: Georgia, serif;
+font-size:20px;
+font-weight:bold;
+text-transform: uppercase;
+color: #333;
+}
+
+
+section > h2 {
+margin: 0 0 20px 0;
+font-family: Georgia, serif;
+font-size:20px;
+font-weight:bold;
+text-transform: uppercase;
+}
+
+
+section > h3 {
+margin: 0 0 20px 0;
+font-family: Georgia, serif;
+font-size:20px;
+font-weight:bold;
+text-transform: uppercase;
+color:#999;
+}
+</pre>
+      </td>
+    </tr>
+  </thead>
+</table>
+
+<hr>
+
+<h3>Mixins amb paràmetres</h3>
+<pre>@mixin nom($param1,$param2, $param3: DEFAULT) {
+  propietats...
+}</pre>
+<p>De la mateixa manera que indiquem a les funcions que li pasarem valors de paràmetres dins dels parèntesi. També podem establir valors per defecte al mixin.</p>
+<p>I per invocar posen <strong><em>@include</em> seguit del nom del mixin, i si hem de passar paràmetres hem de </strong> </p>
+<pre>
+  @include titulos(18px, 600, #666);
+</pre>
+<p>Veiem un exemple complert:</p>
+<table class="comparativa">
+<thead>
+<tr>
+<th>SASS</th>
+<th>CSS</th>
+</tr>
+<tr>
+<td class="pink">
+<pre class="pink">
+@mixin titulos($fsize, $fw, $color: #000) {
+  margin: 0 0 20px 0;
+  font-family: Georgia, serif;
+  font-size:20px;
+  font-weight:bold;
+  text-transform: uppercase;
+}
+
+section > h1 {
+  @include titulos(22px, bold);
+  color: #333;
+}
+
+section > h2 {
+  @include titulos(18px, 600, #666);
+
+}
+
+section > h3 {
+  @include titulos(15px, 300, #999);
+  color:#999;
+}
+
+</pre>
+</td>
+<td class="pre">
+<pre>
+section > h1 {
+margin: 0 0 20px 0;
+font-family: Georgia, serif;
+font-size:20px;
+font-weight:bold;
+text-transform: uppercase;
+color: #333;
+}
+
+
+section > h2 {
+margin: 0 0 20px 0;
+font-family: Georgia, serif;
+font-size:20px;
+font-weight:bold;
+text-transform: uppercase;
+}
+
+
+section > h3 {
+margin: 0 0 20px 0;
+font-family: Georgia, serif;
+font-size:20px;
+font-weight:bold;
+text-transform: uppercase;
+color:#999;
+}
+</pre>
+</td>
+</tr>
+</thead>
+</table>
+
+      </article>
+
+<hr>
+
+<article>
+<header><a name="4"></a><h2></h2></header>
+<p></p>
+</article>
+
+
+    </section>
+    <footer>
+      <a href="../06/">Anterior</a>
+      <a href="../08/">Següent</a>
+    </footer>
+  </main>
+
+</body>
+</html>
