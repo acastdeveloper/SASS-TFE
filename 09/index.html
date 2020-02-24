@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Video 8. Estendre estils pre-existents i "ficticis".</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,400,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main>
+    <a href="../index.php">&lt;Tornar</a>
+    <header><h1>Video 8. Estendre estils pre-existents i <em>"ficticis"</em>.</h1>
+    <nav><h2>Sumari</h2>
+      <ul>
+        <li><a href="#1">Estils ficticis</a></li>
+      </ul>
+    </nav>
+    </header>
+    <hr>
+    <section>
+      <article>
+        <header><h2><a name="1"></a>Estils <em>ficticis</em></h2></header>
+        <p>Es defineixen igual que qualsevol altre classe, però en comptes de fer servir un selector CSS normal li afegim el signe <strong><em>%</em></strong> al davant. Exemple:</p>
+<pre class="pink">
+  %estil_fictici {
+  ... regles ...
+  }
+</pre>
+
+<p class="resalt"><strong>Nota:</strong> <br> Si <strong>NO</strong> "estenem" un estil <strong><em>fictici</em></strong><br> llavors <br> <strong>NO</strong> es veurà aquest estil al full d'estils CSS que compili.</p></article>
+<hr>
+
+
+<article>
+<header><a name="2"></a><h2>Estendre estils</h2></header>
+<p>A SASS podem heretar les propietats que ja tingui un altre estil. D'això en diem <strong><em>estendre</em></strong>. Per a estendre estils utilitzem la directriu <strong><em>@extend</em></strong> i indiquem de quina classe volem heretar les seves propietats. <span class="resalt"><strong>Nota:</strong> D'alguna manera ens recorda a l'extensió de classes de php. Fins i tot podem heretar les propietats d'una altra classe i aquelles que siguin diferents les podem <strong><em>sobre-escriure</em></strong>.</span> Veiem algun exemple:</p>
+<pre class="pink">
+
+  %buttom {
+  /*Aquest és un estil "fictici". Si no l'extenem no apareixerà al codi CSS de sortida. */
+    padding:10px;
+    color:#fff;
+    background:blue;
+    border-radius: 6px;
+    display:inline-block;
+  }
+
+.cancelar {
+  @extend %buttom;
+  /* Directriu @extend per heretar les propietats d'una altra classe */
+
+  background: red;
+  /* Sobre-escriptura només de la propietat "background" */
+
+}
+
+.enviar {
+  @extend %buttom;
+  /* Herència */
+  background: green;
+  /* Sobre-escriptura*/
+}
+
+
+</pre>
+</article>
+
+
+    </section>
+    <footer>
+      <a href="../06/">Anterior</a>
+      <a href="../08/">Següent</a>
+    </footer>
+  </main>
+
+</body>
+</html>

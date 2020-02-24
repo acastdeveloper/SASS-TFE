@@ -17,6 +17,10 @@
         <li><a href="#1">Sassmeister</a></li>
         <li><a href="#2">Què són els mixins?</a></li>
         <li><a href="#3">Com declarar els mixins?</a></li>
+        <ul>
+          <li><a href="#4">Mixins sense paràmetres</a></li>
+          <li><a href="#5">Mixins amb paràmetres</a></li>
+        </ul>
       </ul>
     </nav>
     </header>
@@ -34,8 +38,8 @@
 <hr>
       <article>
         <header><h2><a name="3"></a>Com es declaren els mixins?</h2></header>
-        <h3>Mixins sense paràmetres</h3>
-        <pre>@mixin nom {
+        <h3><a name="4"></a>Mixins sense paràmetres</h3>
+        <pre class="pink">@mixin nom {
           propietats...
         }</pre>
         <p>Per definir un mixin que no li calguin paràmetres hem de col·locar <strong><em>@mixin</em></strong> seguit del nom que li vulguem posar al <strong><em>mixin</em></strong> per poder referir-nos a ell cada vegada. I després entre claudators posem les propietats que volem que tingui. A continuació veiem un exemple:</p>
@@ -112,8 +116,8 @@ color:#999;
 
 <hr>
 
-<h3>Mixins amb paràmetres</h3>
-<pre>@mixin nom($param1,$param2, $param3: DEFAULT) {
+<h3><a name="5"></a>Mixins amb paràmetres</h3>
+<pre class="pink">@mixin nom($param1,$param2, $param3: DEFAULT) {
   propietats...
 }</pre>
 <p>De la mateixa manera que indiquem a les funcions que li pasarem valors de paràmetres dins dels parèntesi. També podem establir valors per defecte al mixin.</p>
@@ -193,12 +197,6 @@ color:#999;
 
       </article>
 
-<hr>
-
-<article>
-<header><a name="4"></a><h2></h2></header>
-<p></p>
-</article>
 
 
     </section>
